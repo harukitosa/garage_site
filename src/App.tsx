@@ -158,7 +158,7 @@ const Canvas: React.FC<ComponentProps> = (props: ComponentProps) => {
             updateState(p5, s);
         });
         count++;
-        if (count % 230 === 0) {
+        if (count % 100 === 0) {
             for (let i = 0; i < 1; i++) {
                 const data = {
                     vec: p5.createVector(
