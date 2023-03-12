@@ -138,7 +138,8 @@ export const RectSoundPage: React.FC<ComponentProps> = (
             canvasParentRef
         );
 	const space = 300;
-        for (let i = 0; i < 30; i++) {
+	const SIZE = p5.windowWidth/80;
+        for (let i = 0; i < SIZE; i++) {
             list.push(
                 new Rect(
                     p5,
