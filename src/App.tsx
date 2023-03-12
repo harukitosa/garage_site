@@ -13,6 +13,8 @@ function App() {
                     <Link to={`/product/rectsound`}>「□」</Link>
                     <br/>
                     <Link to={`/product/rectsound2`}>「□」- 2</Link>
+                    <br/>
+                    <Link to={`/product/rectsound3`}>「□」- 3</Link>
                 </div>
             </div>
         </>
