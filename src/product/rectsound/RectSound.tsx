@@ -108,7 +108,6 @@ class Rect {
             )
         );
         this.color = normalColorSample(p5)[getRandomInt(4)];
-        console.log(this.color);
     }
 
     public update(p5: p5Types) {

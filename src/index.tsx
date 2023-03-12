@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { CircuitPage } from './product/circuit/Circuit';
 import { RectSoundPage } from './product/rectsound/RectSound';
+import { RectSound2Page } from './product/rectsound2/RectSound2';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/product/rectsound",
     element: <RectSoundPage/>,
+  },
+  {
+    path: "/product/rectsound2",
+    element: <RectSound2Page/>,
   }
 ]);
 

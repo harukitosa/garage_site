@@ -6,41 +6,91 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+template
+```ts
+export const RectSound2Page: React.FC<ComponentProps> = (
+    props: ComponentProps
+) => {
+    //See annotations in JS for more information
+    const setup = (p5: p5Types, canvasParentRef: Element) => {
+        p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(
+            canvasParentRef
+        );
+        p5.frameRate(60);
+    };
 
-### `npm test`
+    let released = true;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    function mouseReleased() {
+        released = true;
+    }
+    const mousePressed = (p5: p5Types) => {
+        if (!released) {
+            return;
+        }
+        released = false;
+    };
 
-### `npm run build`
+    const draw = (p5: p5Types) => {
+        p5.background(255);
+    };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    const windowResized = (p5: p5Types) => {
+        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    };
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    return (
+        <Sketch
+            setup={setup}
+            draw={draw}
+            windowResized={windowResized}
+            mousePressed={mousePressed}
+            mouseReleased={mouseReleased}
+        />
+    );
+};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export const RectSound2Page: React.FC<ComponentProps> = (
+    props: ComponentProps
+) => {
+    //See annotations in JS for more information
+    const setup = (p5: p5Types, canvasParentRef: Element) => {
+        p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(
+            canvasParentRef
+        );
+        p5.frameRate(60);
+    };
 
-### `npm run eject`
+    let released = true;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    function mouseReleased() {
+        released = true;
+    }
+    const mousePressed = (p5: p5Types) => {
+        if (!released) {
+            return;
+        }
+        released = false;
+    };
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    const draw = (p5: p5Types) => {
+        p5.background(255);
+    };
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    const windowResized = (p5: p5Types) => {
+        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    };
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    return (
+        <Sketch
+            setup={setup}
+            draw={draw}
+            windowResized={windowResized}
+            mousePressed={mousePressed}
+            mouseReleased={mouseReleased}
+        />
+    );
+};
+```
