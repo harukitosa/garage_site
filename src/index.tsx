@@ -3,14 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { CircuitPage } from './product/circuit/Circuit';
+import { RectSoundPage } from './product/rectsound/RectSound';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+  {
+    path: "/product/circuit",
+    element: <CircuitPage/>,
+  },
+  {
+    path: "/product/rectsound",
+    element: <RectSoundPage/>,
+  }
+]);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+     <RouterProvider router={router} />
 );
 
 // If you want to start measuring performance in your app, pass a function
