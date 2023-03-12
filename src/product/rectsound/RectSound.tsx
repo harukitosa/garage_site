@@ -40,20 +40,20 @@ class PointHasVelocity {
     }
 
     public updateVelocity(p5: p5Types) {
-        if (this.position.x > p5.windowWidth) {
+        if (this.position.x > p5.windowWidth-50) {
             this.velocity.x *= -1;
             this.playSound(this.hash);
         }
-        if (this.position.x < 0) {
+        if (this.position.x < 50) {
             this.velocity.x *= -1;
             this.playSound(this.hash);
         }
 
-        if (this.position.y > p5.windowHeight) {
+        if (this.position.y > p5.windowHeight-50) {
             this.velocity.y *= -1;
             this.playSound(this.hash);
         }
-        if (this.position.y < 0) {
+        if (this.position.y < 50) {
             this.velocity.y *= -1;
             this.playSound(this.hash);
         }
@@ -138,12 +138,13 @@ export const RectSoundPage: React.FC<ComponentProps> = (
         p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(
             canvasParentRef
         );
+	const space = 300;
         for (let i = 0; i < 30; i++) {
             list.push(
                 new Rect(
                     p5,
-                    getRandomInt(p5.windowWidth),
-                    getRandomInt(p5.windowHeight),
+                    getRandomInt(p5.windowWidth-space)+space/2,
+                    getRandomInt(p5.windowHeight-space)+space/2,
                     getRandomInt(100),
                     getRandomInt(100)
                 )
@@ -170,9 +171,10 @@ export const RectSoundPage: React.FC<ComponentProps> = (
             rect.render(p5);
             rect.update(p5);
         });
-	// p5.textSize(32);
-	// p5.fill(255)
-	// p5.text("不気味な楽器", 10, 30);
+	p5.textSize(18);
+	p5.fill(0)
+	// p5.textFont('Georgia');
+	p5.text("「□」", 10, 30);
     };
 
     const windowResized = (p5: p5Types) => {
